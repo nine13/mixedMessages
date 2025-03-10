@@ -89,3 +89,59 @@ const getRandomNumber = (number) => {
 	return Math.floor(Math.random() * number);
 }
 
+// displays the quote, separating the quote from the attributed person
+const formatQuote = (quoteString) => {
+	let quoteParts = quoteString.split('”');
+	
+	return quoteParts.join('”\n');
+}
+
+const displayRandomQuote = () => {
+	// choose a random quote type using a random number
+	let quoteType = getRandomNumber(motivationalQuotes.length);
+
+	// change the output based on the type of quote
+	switch (quoteType) {
+		// Deep Motivational Quote
+		case 0:
+			console.log(`This quote is for the deep thinkers:\n`);
+			break;
+		// Motivational Quote about Success
+		case 1:
+			console.log(`For those who are trying to get that bag:\n`);
+			break;
+		// Personal LIfe Motivational Quote
+		case 2:
+			console.log(`If you need some inspiration for your personal life:\n`);
+			break;
+		// Motivational Quote about Work
+		case 3:
+			console.log(`For those who need motivation at work:\n`);
+			break;
+		// Motivational Quote for Women:
+		case 4:
+			console.log(`This quote is for the ladies out there:\n`);
+			break;
+		// Motivational Quote for Men:
+		case 5:
+			console.log(`If you are a man who needs some manly inspriation:\n`);
+			break;
+		// Funny Motivational Quote
+		case 6:
+			console.log(`And here is a silly little quote to inspire you:\n`);
+			break;
+		// Invalid Quote Type
+		default:
+			console.log(`This is an invalid quote type.`);
+			break;
+	}
+
+	// find a random quote index within the quote type
+	let randomQuote = getRandomNumber(motivationalQuotes[quoteType].length);
+
+	// use the formatQuote function to display the quote nicely
+	console.log(formatQuote(motivationalQuotes[quoteType][randomQuote]));
+}
+
+// run the function
+displayRandomQuote();
