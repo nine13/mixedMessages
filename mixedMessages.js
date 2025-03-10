@@ -84,3 +84,8 @@ const motivationalQuotes = [
 	],
 ];
 
+// Returns a random number between 0 and number, excluding number
+const getRandomNumber = (number) => {
+	return Math.floor(Math.random() * number);
+}
+
